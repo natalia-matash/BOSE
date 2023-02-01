@@ -76,3 +76,197 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 }
 
+.header {
+  background-image: url(./img/background/header-small.png);
+  background-position: center;
+  background-size: cover;
+
+  @include onTablet {
+    background-image: url(./img/background/header-big.png);
+  }
+
+  @include onDesctop {
+    background-image: url(./img/background/header-big.png);
+  }
+
+  &__content {
+    @extend %content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icons {
+    display: flex;
+    column-gap: 30px;
+    position: relative;
+
+    @include onTablet {
+      column-gap: 40px;
+    }
+
+    @include onDesctop {
+      column-gap: 40px;
+    }
+  }
+
+  &__icon {
+   @extend %iconSize;
+  }
+
+  &__title-item {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin-bottom: 40px;
+      align-items: center;
+      column-gap: 3px;
+      max-height: 100px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__item {
+    background-color: $colorMain;
+    width: 4px;
+    border-radius: 2px;
+
+    @each $i, $h in $widthTitleItem {
+      &:nth-child(#{$i}) {
+        height: $h;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+
+    @include onTablet {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    @include onDesctop {
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      margin-bottom: 16px;
+      width: 32px;
+      height: 27px;
+      background-image: url(./img/icons/title-before.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesctop {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.logo {
+  width: 130px;
+  height: 16px;
+
+  @include onTablet {
+    width: 190px;
+    height: 24px;
+  }
+
+  @include onDesctop {
+    width: 190px;
+    height: 24px;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--menu {
+    background-image: url(./img/icons/menu.svg);
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url(./img/icons/menu-hover.svg);
+    }
+  }
+
+  &--phone {
+    background-image: url(./img/icons/phone.svg);
+
+    @include onDesctop {
+      position: relative;
+    }
+  }
+
+  &--menu-close {
+    background-image: url(./img/icons/menu-close.svg);
+  }
+  
+  &__call {
+    display: none;
+
+    @include onDesctop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+
+      display: block;
+      width: max-content;
+      text-decoration: none;
+      position: absolute;
+      top: -50%;
+      transform: translate(-100%, 100%);
+      padding-right: 12px;
+      
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16px;      
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $colorMain;
+    }
+  }
+
+  &--phone:hover &__call {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
