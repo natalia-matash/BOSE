@@ -1,0 +1,77 @@
+$colorMain: #292929;
+$widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px, 9 30px, 10 22px, 11 10px;
+
+%iconSize {
+  width: 18px;
+  height: 18px;
+
+  @include onTablet {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include onDesctop {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+%content {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 40px 24px 94px;
+
+  @include onTablet {
+    padding: 52px 72px 40px;
+  }
+
+  @include onDesctop {
+    padding: 52px 136px 64px;
+  }
+}
+
+@mixin onTablet {
+  @media(min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media(min-width: 1260px) {
+    @content;
+  }
+}
+
+[class*="__container"] {
+  box-sizing: border-box;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include onTablet {
+    padding: 0 72px;
+  }
+
+  @include onDesctop() {
+    padding: 0 120px;
+  }
+}
+
+.page {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 16;
+  line-height: 22px;
+  color: $colorMain;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__section {
+    margin: 0 0 120px;
+  }
+}
