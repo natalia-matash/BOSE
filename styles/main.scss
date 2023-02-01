@@ -1,0 +1,263 @@
+$colorMain: #292929;
+$widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px, 9 30px, 10 22px, 11 10px;
+
+@mixin onTablet {
+  @media(min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media(min-width: 1260px) {
+    @content;
+  }
+}
+
+%content {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 40px 24px 94px;
+
+  @include onTablet {
+    padding: 52px 72px 40px;
+  }
+
+  @include onDesctop {
+    padding: 52px 136px 64px;
+  }
+}
+
+%iconSize {
+  width: 18px;
+  height: 18px;
+
+  @include onTablet {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include onDesctop {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+[class*="__container"] {
+  box-sizing: border-box;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.page {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 16;
+  line-height: 22px;
+  color: $colorMain;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__section {
+    margin: 0 0 120px;
+  }
+}
+
+.header {
+  background-image: url(../src/img/background/header-small.png);
+  background-position: center;
+  background-size: cover;
+
+  @include onTablet {
+    background-image: url(../src/img/background/header-big.png);
+  }
+
+  @include onDesctop {
+    background-image: url(../src/img/background/header-big.png);
+  }
+
+  &__content {
+    @extend %content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icons {
+    display: flex;
+    column-gap: 30px;
+    position: relative;
+
+    @include onTablet {
+      column-gap: 40px;
+    }
+
+    @include onDesctop {
+      column-gap: 40px;
+    }
+  }
+
+  &__icon {
+   @extend %iconSize;
+  }
+
+  &__title-item {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin-bottom: 40px;
+      align-items: center;
+      column-gap: 3px;
+      max-height: 100px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__item {
+    background-color: $colorMain;
+    width: 4px;
+    border-radius: 2px;
+
+    @each $i, $h in $widthTitleItem {
+      &:nth-child(#{$i}) {
+        height: $h;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+
+    @include onTablet {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    @include onDesctop {
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      margin-bottom: 16px;
+      width: 32px;
+      height: 27px;
+      background-image: url(../src/img/icons/title-before.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesctop {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.logo {
+  width: 130px;
+  height: 16px;
+
+  @include onTablet {
+    width: 190px;
+    height: 24px;
+  }
+
+  @include onDesctop {
+    width: 190px;
+    height: 24px;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--menu {
+    background-image: url(../src/img/icons/menu.svg);
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url(../src/img/icons/menu-hover.svg);
+    }
+  }
+
+  &--phone {
+    background-image: url(../src/img/icons/phone.svg);
+
+    @include onDesctop {
+      position: relative;
+    }
+  }
+
+  &--menu-close {
+    background-image: url(../src/img/icons/menu-close.svg);
+  }
+  
+  &__call {
+    display: none;
+
+    @include onDesctop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+
+      display: block;
+      width: max-content;
+      text-decoration: none;
+      position: absolute;
+      top: -50%;
+      transform: translate(-100%, 100%);
+      padding-right: 12px;
+      
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16px;      
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $colorMain;
+    }
+  }
+
+  &--phone:hover &__call {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
