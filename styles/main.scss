@@ -13,20 +13,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 }
 
-%content {
-  height: 100vh;
-  box-sizing: border-box;
-  padding: 40px 24px 94px;
-
-  @include onTablet {
-    padding: 52px 72px 40px;
-  }
-
-  @include onDesctop {
-    padding: 52px 136px 64px;
-  }
-}
-
 %iconSize {
   width: 18px;
   height: 18px;
@@ -42,8 +28,19 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 }
 
+%headerPlacement {
+  padding: 40px 24px 0;
+
+  @include onTablet {
+    padding: 52px 76px 0;
+  }
+
+  @include onDesctop {
+    padding: 52px 0 0;
+  }
+}
+
 [class*="__container"] {
-  box-sizing: border-box;
   max-width: 1020px;
   margin: 0 auto;
 }
@@ -81,7 +78,18 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 
   &__content {
-    @extend %content;
+    height: 100vh;
+    box-sizing: border-box;
+    @extend %headerPlacement;
+    padding-bottom: 94px;
+
+    @include onTablet {
+      padding: 40px;
+    }
+
+    @include onDesctop() {
+      padding: 64px;
+    }
 
     display: flex;
     flex-direction: column;
