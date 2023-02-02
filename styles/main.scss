@@ -58,6 +58,10 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
   &__body {
     margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__section {
@@ -82,7 +86,7 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     height: 100vh;
     box-sizing: border-box;
     @extend %headerPlacement;
-    
+
     padding-bottom: 94px;
 
     @include onTablet {
@@ -95,6 +99,7 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    }
   }
 
   &__nav {
