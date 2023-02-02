@@ -16,22 +16,44 @@
 }
 
 .menu__content, .header__content {
-  padding: 40px 24px 0;
+  padding-top: 40px;
 }
 @media (min-width: 744px) {
   .menu__content, .header__content {
-    padding: 52px 76px 0;
+    padding-top: 52px;
   }
 }
 @media (min-width: 1260px) {
   .menu__content, .header__content {
-    padding: 52px 0 0;
+    padding-top: 52px;
+  }
+}
+
+.about__title {
+  margin: 0;
+  margin-bottom: 48px;
+}
+@media (min-width: 744px) {
+  .about__title {
+    margin-bottom: 64px;
+  }
+}
+@media (min-width: 1260px) {
+  .about__title {
+    margin-bottom: 64px;
   }
 }
 
 [class*=__container] {
-  max-width: 1020px;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 20px;
   margin: 0 auto;
+}
+@media (min-width: 744px) {
+  [class*=__container] {
+    padding: 0 72px;
+  }
 }
 
 .page {
@@ -350,6 +372,81 @@
 }
 .menu__call:hover {
   transform: scale(1.2);
+}
+
+.about__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -1.5px;
+}
+.about__items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+@media (min-width: 1260px) {
+  .about__items {
+    flex-direction: row;
+  }
+}
+.about__item {
+  flex: 1 1 100%;
+  margin-bottom: 48px;
+}
+.about__item:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 744px) {
+  .about__item {
+    margin-bottom: 40px;
+  }
+  .about__item:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1260px) {
+  .about__item {
+    margin-bottom: 0;
+    flex: 1 1 33.33%;
+  }
+}
+.about__photo {
+  margin-bottom: 32px;
+  width: 280px;
+  height: 277px;
+}
+@media (min-width: 744px) {
+  .about__photo {
+    width: 392px;
+    height: 387px;
+  }
+}
+@media (min-width: 1260px) {
+  .about__photo {
+    width: 324px;
+    height: 320px;
+  }
+}
+.about__img {
+  width: 100%;
+  object-position: center;
+}
+.about__name {
+  margin-bottom: 8px;
+  font-weight: 700;
+  line-height: 140%;
+}
+.about__description {
+  margin-bottom: 12px;
+  line-height: 140%;
+}
+.about__price {
+  font-weight: 700;
+  line-height: 140%;
 }
 
 /*# sourceMappingURL=main.css.map */
