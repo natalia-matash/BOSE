@@ -82,6 +82,7 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     height: 100vh;
     box-sizing: border-box;
     @extend %headerPlacement;
+    
     padding-bottom: 94px;
 
     @include onTablet {
@@ -90,7 +91,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
     @include onDesctop {
       padding-bottom: 64px;
-    }
 
     display: flex;
     flex-direction: column;
