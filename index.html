@@ -54,6 +54,7 @@
               <div class="header__icon">
                 <a 
                   class="icon icon--menu"
+                  title="open menu"
                   href="#menu">
                 </a>
               </div>
@@ -100,6 +101,7 @@
             <div class="menu__icon">
               <a 
                 class="icon icon--menu-close"
+                title="close menu"
                 href="#">
               </a>
             </div>
@@ -257,12 +259,14 @@
         <div class="contacts__container">
           <h2 class="contacts__title">Contact us</h2>
           <div class="contacts__send">
-            <form action="#" class="contacts__form">
+            <form action="#" class="contacts__form" id="form">
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 class="contacts__field"
+                autocomplete="off"
+                required
               >
 
               <input 
@@ -270,6 +274,8 @@
                 name="email"
                 placeholder="Email"
                 class="contacts__field"
+                autocomplete="off"
+                required
               >
               <textarea 
                 name="textarea"
@@ -278,7 +284,7 @@
               ></textarea>
 
                 <input
-                  type="button"
+                  type="submit"
                   name="button"
                   class="contacts__button"
                   value="Send">
@@ -304,6 +310,8 @@
               <div class="contacts__description">Address</div>
               <a
                 href="https://goo.gl/maps/ScCPbZ3cKt5oHdwT9"   class="contacts__information"
+                target="_blank"
+                rel="noopener"
               >
               400 first ave.
               <br>
@@ -317,7 +325,6 @@
         </div>
       </section>
     </main>
-
     <footer class="footer"></footer>
     <script src="./script.js"></script>
   </body>
