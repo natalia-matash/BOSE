@@ -177,10 +177,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     @include onTablet {
       column-gap: 40px;
     }
-
-    @include onDesctop {
-      column-gap: 40px;
-    }
   }
 
   &__icon {
@@ -247,10 +243,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
       @include onTablet {
         display: none;
       }
-
-      @include onDesctop {
-        display: none;
-      }
     }
   }
 }
@@ -260,11 +252,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   height: 16px;
 
   @include onTablet {
-    width: 190px;
-    height: 24px;
-  }
-
-  @include onDesctop {
     width: 190px;
     height: 24px;
   }
