@@ -31,8 +31,25 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 }
 
-%sectionTitleMarginBottom {
+%sectionTitle{
   margin: 0;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: -1.5px;
+
+  @include onTablet {
+    font-size: 40px;
+    line-height: 100%;
+  }
+
+  @include onDesctop {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+%sectionTitleMargin {
   margin-bottom: 48px;
 
   @include onTablet {
@@ -41,20 +58,46 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 }
 
 %grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(130px, 1fr));
-    column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  column-gap: 20px;
 
-    @include onTablet {
-      grid-template-columns: repeat(6, 1fr);
-      column-gap: 24px;
-    }
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
 
-    @include onDesctop {
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 24px;
-    }
+  @include onDesctop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
 }
+
+%button {
+  padding: 15px 0;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 40px;
+  background-color: $colorMain;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+
+  transition: all 0.3s;
+
+  &:hover {
+    border: 2px solid $colorMain;
+    background-color: #fff;
+    color: $colorMain;
+  }
+
+  &:active {
+    border: 2px solid #000;
+    background-color: #000;
+    color: #fff;
+  }
+}
+
 
 [class*="__container"] {
   max-width: 1200px;
@@ -97,10 +140,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   background-size: cover;
 
   @include onTablet {
-    background-image: url(../src/img/background/header-big.png);
-  }
-
-  @include onDesctop {
     background-image: url(../src/img/background/header-big.png);
   }
 
@@ -386,13 +425,9 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
 .about {
   &__title {
-    @extend %sectionTitleMarginBottom;
-
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 32px;
+    @extend %sectionTitle;
+    @extend %sectionTitleMargin;
     text-align: center;
-    letter-spacing: -1.5px;
   }
 
   &__items {
@@ -470,13 +505,9 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
 .view {
   &__title {
-    @extend %sectionTitleMarginBottom;
-
+    @extend %sectionTitle;
+    @extend %sectionTitleMargin;
     text-align: center;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 32px;
-    letter-spacing: -1.5px;
   }
 
   &__items {
@@ -565,16 +596,7 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   
   &__button {
     grid-column: 1 / -1;
-    padding: 15px 0;
-    font-weight: 700;
-    border: 2px solid transparent;
-    border-radius: 40px;
-    background-color: #292929;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-
-    transition: all 0.3s;
+    @extend %button;
 
     @include onTablet {
       grid-column: 2 / -2;
@@ -582,18 +604,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
     @include onDesctop {
       grid-column: 5 / 9;
-    }
-
-    &:hover {
-      border: 2px solid $colorMain;
-      background-color: #fff;
-      color: $colorMain;
-    }
-
-    &:active {
-      border: 2px solid #000;
-      background-color: #000;
-      color: #fff;
     }
   }
 }
@@ -604,26 +614,18 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 
   &__title {
+    @extend %sectionTitle;
     margin: 0 0 32px;
     grid-column: 1 / -1;
-
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 32px;
-    letter-spacing: -1.5px;
 
     @include onTablet {
       margin: 0;
       grid-column: 1 / 4;
-      font-size: 40px;
-      line-height: 100%;
     }
 
     @include onDesctop {
       margin: 0;
       grid-column: 1 / 7;
-      font-size: 48px;
-      line-height: 48px;
     }
   }
 
@@ -664,4 +666,121 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     margin: 0;
   }
 }
+
+.contacts {
+  &__title {
+    @extend %sectionTitle;
+    @extend %sectionTitleMargin;
+    text-align: center;
+  }
+
+  &__send {
+    @extend %grid;
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 0;
+    }
+
+    @include onDesctop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__info-wrapper {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesctop {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    font-family: inherit;
+    background-color: #f8f8fa;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    outline: none;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 20px;
+      color: #7e7e83;
+    }
+
+    &--textarea {
+      margin-bottom: 32px;
+      height: 278px;
+      border-radius: 16px;
+      resize: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    @extend %button;
+  }
+
+  &__info {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 140%;
+    color: #9fadc2;
+  }
+
+  &__information {
+    padding-bottom: 2px;
+    font-family: inherit;
+    line-height: 140%;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: #3e3e3e;
+    transition: border-bottom 0.3s;
+
+    &:hover {
+      border-bottom: 1px solid #3e3e3e;
+    }
+  }
+}
+
+// .footer {
+//   width: 100%;
+//   min-height: 200px;
+//   background-image: url(../src/img/background/footer-big.png);
+//   background-size: cover;
+//   background-position: center;
+
+//   @include onTablet {
+//     height: 400px;
+//   }
+
+//   @include onDesctop {
+//     height: 460px;
+//   }
+// }
+
+
 
