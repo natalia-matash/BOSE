@@ -701,4 +701,22 @@
   border-bottom: 1px solid #3e3e3e;
 }
 
+.footer {
+  width: 100%;
+  min-height: 200px;
+  background-image: url(../src/img/background/footer-big.png);
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 744px) {
+  .footer {
+    height: 400px;
+  }
+}
+@media (min-width: 1260px) {
+  .footer {
+    height: 460px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

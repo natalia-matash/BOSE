@@ -766,21 +766,21 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   }
 }
 
-// .footer {
-//   width: 100%;
-//   min-height: 200px;
-//   background-image: url(../src/img/background/footer-big.png);
-//   background-size: cover;
-//   background-position: center;
+.footer {
+  width: 100%;
+  min-height: 200px;
+  background-image: url(../src/img/background/footer-big.png);
+  background-size: cover;
+  background-position: center;
 
-//   @include onTablet {
-//     height: 400px;
-//   }
+  @include onTablet {
+    height: 400px;
+  }
 
-//   @include onDesctop {
-//     height: 460px;
-//   }
-// }
+  @include onDesctop {
+    height: 460px;
+  }
+}
 
 
 
