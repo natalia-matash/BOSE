@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body class="page__body">
-    <header class="header page__section">
+    <header class="header page__section" hidden>
       <div class="header__container">
         <div class="header__content">
           <div class="header__nav">
@@ -83,7 +83,7 @@
       </div>
     </header>
 
-    <section class="menu" id="menu">
+    <section class="menu" id="menu" hidden>
       <div class="menu__container">
         <div class="menu__content">
           <div class="menu__nav">
@@ -138,7 +138,7 @@
     </section>
 
     <main>
-      <section class="about page__section" id="about">
+      <section class="about page__section" id="about" hidden>
         <div class="about__container">
           <h2 class="about__title">Recommended</h2>
 
@@ -173,6 +173,49 @@
               <div class="about__description">Portable bluetooth</div>
               <div class="about__price">$ 129.00</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view page__section" id="view">
+        <div class="view__container">
+          <h2 class="view__title">
+            Browse Bose
+            <br>
+             products by category
+          </h2>
+
+          <div class="view__items">
+            <div class="view__photos">
+              <img class="view__photo view__photo--big" src="./src/img/gallery/gallery1.png" alt="photo 1">
+              <img class="view__photo view__photo--small" src="./src/img/gallery/gallery2.png" alt="photo 2">
+              
+            </div>
+            <div class="view__stuff">Headphones & earbuds</div>
+          </div>
+
+          <div class="view__items">
+            <div class="view__photos">
+              <img class="view__photo view__photo--big" src="./src/img/gallery/gallery3.png" alt="photo 3">
+              <img class="view__photo view__photo--small" src="./src/img/gallery/gallery4.png" alt="photo 4">
+              
+            </div>
+            <div class="view__stuff">Headphones & earbuds</div>
+          </div>
+
+          <div class="view__items">
+            <div class="view__photos">
+              <img class="view__photo view__photo--small-last" src="./src/img/gallery/gallery5.png" alt="photo 5">
+              <img class="view__photo view__photo--big-last" src="./src/img/gallery/gallery6.png" alt="photo 6">
+              
+            </div>
+            <div class="view__stuff">Headphones & earbuds</div>
+          </div>
+
+          <div class="view__btn">
+            <a href="#" class="view__button">
+              View all
+            </a>
           </div>
         </div>
       </section>

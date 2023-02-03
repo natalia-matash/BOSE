@@ -21,11 +21,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     width: 24px;
     height: 24px;
   }
-
-  @include onDesctop {
-    width: 24px;
-    height: 24px;
-  }
 }
 
 %headerPlacement {
@@ -34,23 +29,31 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   @include onTablet {
     padding-top: 52px;
   }
-
-  @include onDesctop {
-    padding-top: 52px;
-  }
 }
 
-%sectionMarginBottom {
+%sectionTitleMarginBottom {
   margin: 0;
   margin-bottom: 48px;
 
   @include onTablet {
     margin-bottom: 64px;
   }
+}
 
-  @include onDesctop {
-    margin-bottom: 64px;
-  }
+%grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    column-gap: 20px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 24px;
+    }
+
+    @include onDesctop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+    }
 }
 
 [class*="__container"] {
@@ -106,6 +109,10 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
     box-sizing: border-box;
     @extend %headerPlacement;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     padding-bottom: 94px;
 
     @include onTablet {
@@ -114,10 +121,6 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
     @include onDesctop {
       padding-bottom: 64px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     }
   }
 
@@ -383,7 +386,7 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
 
 .about {
   &__title {
-    @extend %sectionMarginBottom;
+    @extend %sectionTitleMarginBottom;
 
     font-weight: 700;
     font-size: 32px;
@@ -461,6 +464,137 @@ $widthTitleItem: 1 10px, 2 20px, 3 26px, 4 44px, 5 32px, 6 64px, 7 76px, 8 44px,
   &__price {
     font-weight: 700;
     line-height: 140%;
+  }
+
+}
+
+.view {
+  &__title {
+    @extend %sectionTitleMarginBottom;
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -1.5px;
+  }
+
+  &__items {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+
+      &:last-child {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__photos {
+    margin-bottom: 16px;
+
+    @extend %grid;
+    grid-template-rows: minmax(130px, 1fr);
+    grid-auto-rows: minmax(130px, 1fr);
+    grid-auto-flow: row;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include onTablet {
+      grid-template-rows: minmax(187px, 1fr);
+      grid-auto-rows: minmax(187px, 1fr);
+
+      &--big {
+        grid-column: 1 / 5;
+      }
+
+      &--small {
+        grid-column: 5/ -1;
+      }
+
+      &--small-last {
+        grid-column: 1 / 3;
+      }
+
+      &--big-last {
+        grid-column: 3 / -1;
+      }
+    }
+
+    @include onDesctop {
+      grid-template-rows: 320px;
+      grid-auto-rows: 320px;
+
+      &--big {
+        grid-column: 1 / 9;
+      }
+
+      &--small {
+        grid-column: 9/ -1;
+      }
+
+      &--small-last {
+        grid-column: 1 / 5;
+      }
+
+      &--big-last {
+        grid-column: 5 / -1;
+      }
+    }
+
+  }
+
+  &__stuff {
+    font-weight: 700;
+    line-height: 140%;
+
+    @include onTablet {
+      font-size: 24px;
+    }
+  }
+
+  &__btn {
+    @extend %grid;
+  }
+  
+  &__button {
+    grid-column: 1 / -1;
+    padding: 15px 0;
+    font-weight: 700;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    background-color: #292929;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesctop {
+      grid-column: 5 / 9;
+    }
+
+    &:hover {
+      border: 2px solid $colorMain;
+      background-color: #fff;
+      color: $colorMain;
+    }
+
+    &:active {
+      border: 2px solid #000;
+      background-color: #000;
+      color: #fff;
+    }
   }
 
 }
